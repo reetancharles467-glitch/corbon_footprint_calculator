@@ -347,3 +347,9 @@ button{ font-family: inherit; cursor: pointer; }
   .header-inner{ padding: 12px 18px; }
   .section-head, .calculator-grid, .verdict-card, .charts-row, .rec-grid, .how-inner{ padding-left: 18px; padding-right: 18px; }
 }
+body {
+    background-image: url('scene1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
