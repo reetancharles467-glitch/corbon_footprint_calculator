@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CarbonTrack Pro — Know Your Carbon Shadow</title>
+<meta name="description" content="A precise, personalized carbon footprint tracker. Log your daily habits and get real recommendations to shrink your carbon shadow." />
+
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/enhancements.css" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="blob-field" aria-hidden="true">
+  <div class="blob blob--a" data-depth="0.15"></div>
+  <div class="blob blob--b" data-depth="0.35"></div>
+  <div class="blob blob--c" data-depth="0.08"></div>
+</div>
+
+<canvas id="cfc-bg-canvas" aria-hidden="true"></canvas>
+<div id="cfc-bg-text" aria-hidden="true"><span>Your choices matter.</span></div>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" width="28" height="28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4C10 6 5 15 6 24c0.6 6 5.2 10.6 11.2 11.6C15 32 14 26 16 20c2.3-6.9 8-10.6 14-11.8C27 3.5 23.6 3.2 20 4Z" fill="url(#leafGrad)"/>
+          <defs>
+            <linearGradient id="leafGrad" x1="5" y1="4" x2="27" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8CE0AC"/><stop offset="1" stop-color="#1F6B4A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">CarbonTrack <em>Pro</em></span>
+        <span class="brand-tagline">Measure. Understand. Reduce.</span>
+      </span>
+    </a>
+    <nav class="header-nav" aria-label="Primary">
+      <a href="#calculator">Assessment</a>
+      <a href="#story">Story</a>
+      <a href="#results">Results</a>
+      <a href="#recommendations">Recommendations</a>
+    </nav>
+    <a href="#calculator" class="btn btn--primary btn--small">Start assessment</a>
+  </div>
+</header>
+
+<main id="main"><span id="top"></span>
+
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow reveal">🌍 Personal climate accounting</p>
+      <h1 class="hero-title reveal">
+        Every day leaves<br/>a <span class="hero-title-accent">carbon shadow.</span><br/>See yours clearly.
+      </h1>
+      <p class="hero-sub reveal">
+        CarbonTrack Pro turns your commute, your dinner, your electricity bill and your bus ride
+        into one honest number — then shows you exactly which habit to change first.
+      </p>
+      <div class="hero-actions reveal">
+        <a href="#calculator" class="btn btn--primary">Start my assessment <span class="btn-arrow">→</span></a>
+        <a href="#how-it-works" class="btn btn--ghost">How it works</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat"><span class="hero-stat-num" data-mono>4.7t</span><span class="hero-stat-label">Global average CO₂e per person, per year</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-mono>2.3t</span><span class="hero-stat-label">Paris-aligned target per person, per year</span></div>
+        <div class="hero-stat"><span class="hero-stat-num" data-mono>6</span><span class="hero-stat-label">Habits we measure in this assessment</span></div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit-ring">
+        <div class="orbit-core"><span class="orbit-emoji">🚗</span></div>
+        <span class="orbit-chip orbit-chip--1">⚡ units</span>
+        <span class="orbit-chip orbit-chip--2">🔥 LPG</span>
+        <span class="orbit-chip orbit-chip--3">🍖 meals</span>
+        <span class="orbit-chip orbit-chip--4">🚌 transit</span>
+        <span class="orbit-chip orbit-chip--5">🗑️ waste</span>
+      </div>
+    </div>
+    <button class="scroll-cue" id="scrollCue" aria-label="Scroll to assessment"><span></span></button>
+  </section>
+
+  <section class="how" id="how-it-works">
+    <div class="how-inner">
+      <div class="how-step reveal">
+        <span class="how-step-icon">📝</span>
+        <h3>Log your habits</h3>
+        <p>Answer six quick questions about how you move, eat, and power your home.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-step-icon">🧮</span>
+        <h3>We do the math</h3>
+        <p>Every answer is converted using standard emission factors, live, so you watch your footprint take shape as you type.</p>
+      </div>
+      <div class="how-step reveal">
+        <span class="how-step-icon">🌱</span>
+        <h3>Get a plan</h3>
+        <p>See exactly which category is driving your number, and receive ranked, practical recommendations to bring it down.</p>
+      </div>
+    </div>
+  </section>
+
+<div id="story"><section class="scene" aria-labelledby="sc1"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene1-768.webp 768w, assets/img/scene1.webp 1376w" sizes="100vw"><img src="assets/img/scene1.jpg" srcset="assets/img/scene1-768.jpg 768w, assets/img/scene1.jpg 1376w" sizes="100vw" alt="Smoking power plant beside a busy city and highways" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">1 / 8</p><h2 id="sc1">Human activities create emissions</h2><p>Cars, power stations, factories, kitchens and landfills: ordinary life runs on burning carbon. Every habit you are about to measure starts here.</p></div></div></section><section class="scene" aria-labelledby="sc2"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene2-768.webp 768w, assets/img/scene2.webp 1376w" sizes="100vw"><img src="assets/img/scene2.jpg" srcset="assets/img/scene2-768.jpg 768w, assets/img/scene2.jpg 1376w" sizes="100vw" alt="Earth from space with glowing city lights and a haze of emissions" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">2 / 8</p><h2 id="sc2">Carbon dioxide accumulates</h2><p>CO₂ does not simply disappear. Much of it stays in the air for centuries, and its concentration has climbed from about 280 ppm before industry to over 420 ppm today.</p></div></div></section><section class="scene" aria-labelledby="sc3"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene3-768.webp 768w, assets/img/scene3.webp 1376w" sizes="100vw"><img src="assets/img/scene3.jpg" srcset="assets/img/scene3-768.jpg 768w, assets/img/scene3.jpg 1376w" sizes="100vw" alt="Earth wrapped in layers of trapped heat while sunlight arrives" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">3 / 8</p><h2 id="sc3">The greenhouse effect</h2><p>Sunlight reaches the surface and warms it. Greenhouse gases then hold back some of the outgoing heat, like a blanket that keeps getting thicker.</p></div></div></section><section class="scene" aria-labelledby="sc4"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene4-768.webp 768w, assets/img/scene4.webp 1376w" sizes="100vw"><img src="assets/img/scene4.jpg" srcset="assets/img/scene4-768.jpg 768w, assets/img/scene4.jpg 1376w" sizes="100vw" alt="Earth glowing with heat over Africa and Europe" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">4 / 8</p><h2 id="sc4">Earth heats up</h2><p>The planet is now more than 1.1 °C warmer than in the late 1800s. Small averages hide big shifts in oceans, forests and weather.</p></div></div></section><section class="scene" aria-labelledby="sc5"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene5-768.webp 768w, assets/img/scene5.webp 1376w" sizes="100vw"><img src="assets/img/scene5.jpg" srcset="assets/img/scene5-768.jpg 768w, assets/img/scene5.jpg 1376w" sizes="100vw" alt="Glacier calving into the sea with floating ice" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">5 / 8</p><h2 id="sc5">The ice gives way</h2><p>Glaciers and ice sheets are shrinking, and meltwater adds to rising seas that threaten coasts and the people who live on them.</p></div></div></section><section class="scene" aria-labelledby="sc6"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene6-768.webp 768w, assets/img/scene6.webp 1376w" sizes="100vw"><img src="assets/img/scene6.jpg" srcset="assets/img/scene6-768.jpg 768w, assets/img/scene6.jpg 1376w" sizes="100vw" alt="Wildfire, parched land, a tornado and a flooded city" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">6 / 8</p><h2 id="sc6">Climate disasters</h2><p>Heatwaves, drought, wildfire, floods and stronger storms are becoming more intense. This is the cost of an unchecked footprint.</p><a class="btn btn--primary scene__cta" href="#calculator">Measure my footprint</a></div></div></section></div>
+  <section class="calculator" id="calculator">
+    <div class="section-head reveal">
+      <p class="eyebrow">The assessment</p>
+      <h2>Tell us about a typical week</h2>
+      <p class="section-sub">Every slider updates your live total instantly. Nothing is saved or sent anywhere — it all stays in your browser.</p>
+    </div>
+
+    <div class="calculator-grid">
+      <div class="calculator-cards" id="calculatorCards">
+
+        <article class="q-card reveal" data-category="waste">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#EAF6EE;">🗑️</span>
+            <div><h3>Household waste</h3><p>How much waste do you throw out, per day?</p></div>
+            <span class="q-chip" id="chip-waste">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="10" step="0.1" value="1" class="q-slider" id="slider-waste">
+            <div class="q-number"><input type="number" min="0" max="10" step="0.1" value="1" id="number-waste"><span>kg/day</span></div>
+          </div>
+        </article>
+
+        <article class="q-card reveal" data-category="vehicle">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#EAF1FB;">🚗</span>
+            <div><h3>Vehicle usage</h3><p>Distance driven in a private car, per day.</p></div>
+            <span class="q-chip" id="chip-vehicle">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="120" step="1" value="15" class="q-slider" id="slider-vehicle">
+            <div class="q-number"><input type="number" min="0" max="120" step="1" value="15" id="number-vehicle"><span>km/day</span></div>
+          </div>
+        </article>
+
+        <article class="q-card reveal" data-category="electricity">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#FEF6E4;">⚡</span>
+            <div><h3>Electricity usage</h3><p>Household electricity consumed, per month.</p></div>
+            <span class="q-chip" id="chip-electricity">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="600" step="5" value="150" class="q-slider" id="slider-electricity">
+            <div class="q-number"><input type="number" min="0" max="600" step="5" value="150" id="number-electricity"><span>units/mo</span></div>
+          </div>
+        </article>
+
+        <article class="q-card reveal" data-category="lpg">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#FDEDEA;">🔥</span>
+            <div><h3>LPG cylinders</h3><p>Cooking gas cylinders used, per month.</p></div>
+            <span class="q-chip" id="chip-lpg">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="4" step="0.1" value="1" class="q-slider" id="slider-lpg">
+            <div class="q-number"><input type="number" min="0" max="4" step="0.1" value="1" id="number-lpg"><span>/month</span></div>
+          </div>
+        </article>
+
+        <article class="q-card reveal" data-category="meat">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#FBEAEE;">🍖</span>
+            <div><h3>Meat meals</h3><p>Meals containing meat, per week.</p></div>
+            <span class="q-chip" id="chip-meat">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="21" step="1" value="7" class="q-slider" id="slider-meat">
+            <div class="q-number"><input type="number" min="0" max="21" step="1" value="7" id="number-meat"><span>/week</span></div>
+          </div>
+        </article>
+
+        <article class="q-card reveal" data-category="transit">
+          <div class="q-card-head">
+            <span class="q-icon" style="--icon-bg:#EEF0FC;">🚌</span>
+            <div><h3>Public transport</h3><p>Distance travelled by bus or train, per week.</p></div>
+            <span class="q-chip" id="chip-transit">0 kg CO₂e/day</span>
+          </div>
+          <div class="q-controls">
+            <input type="range" min="0" max="700" step="10" value="20" class="q-slider" id="slider-transit">
+            <div class="q-number"><input type="number" min="0" max="700" step="10" value="20" id="number-transit"><span>km/week</span></div>
+          </div>
+        </article>
+
+<article class="q-card reveal" data-category="flight"><div class="q-card-head"><span class="q-icon" style="--icon-bg:#E8F3FB;">✈️</span>
+<div><h3>Flights</h3><p>Hours spent in the air per year (about 90 kg CO₂e per hour).</p></div><span class="q-chip" id="chip-flight">0 kg CO₂e/yr</span></div>
+<div class="q-controls"><input type="range" min="0" max="200" step="1" value="0" class="q-slider" id="slider-flight"><div class="q-number"><input type="number" min="0" max="200" step="1" value="0" id="number-flight"><span>hrs/yr</span></div></div></article>
+        <button class="btn btn--primary btn--wide reveal" id="calculateBtn" type="button">
+          Calculate my footprint <span class="btn-arrow">→</span>
+        </button>
+      </div>
+
+      <aside class="live-panel reveal" id="livePanel">
+        <div class="live-panel-inner">
+          <p class="live-label">Live daily total</p>
+          <div class="gauge">
+            <svg viewBox="0 0 160 160" class="gauge-svg">
+              <circle cx="80" cy="80" r="70" class="gauge-track"/>
+              <circle cx="80" cy="80" r="70" class="gauge-value" id="gaugeValue"/>
+            </svg>
+            <div class="gauge-center">
+              <span class="gauge-number" id="gaugeNumber" data-mono>0.0</span>
+              <span class="gauge-unit">kg CO₂e / day</span>
+            </div>
+          </div>
+          <p class="live-yearly">≈ <span id="liveYearly" data-mono>0</span> kg CO₂e / year</p>
+          <div class="live-badge" id="liveBadge">—</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="section-head reveal">
+      <p class="eyebrow">Your results</p>
+      <h2>Here's your carbon shadow</h2>
+      <p class="section-sub">Based on the habits you just logged, converted using standard emission factors.</p>
+    </div>
+
+    <div class="verdict-card reveal" id="verdictCard">
+      <div class="verdict-left">
+        <span class="verdict-flag" id="verdictFlag">MODERATE</span>
+        <h3 class="verdict-title" id="verdictTitle">You're tracking close to average.</h3>
+        <p class="verdict-desc" id="verdictDesc">A few focused changes could meaningfully shrink your footprint.</p>
+        <div class="verdict-numbers">
+          <div><span class="verdict-big" id="verdictDaily" data-mono>0.0</span><span class="verdict-unit">kg CO₂e / day</span></div>
+          <div><span class="verdict-big" id="verdictYearly" data-mono>0.0</span><span class="verdict-unit">tons CO₂e / year</span></div>
+        </div>
+      </div>
+      <div class="verdict-right">
+        <div id="doughnutChart" class="donut-wrap" aria-label="Category breakdown chart"></div>
+      </div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card reveal">
+        <h3>Category breakdown</h3>
+        <p class="chart-sub">Share of your daily footprint by habit.</p>
+        <div class="legend" id="doughnutLegend"></div>
+      </div>
+      <div class="chart-card chart-card--wide reveal">
+        <h3>You vs. a sustainable limit</h3>
+        <p class="chart-sub">Each bar compares your daily emissions to a sustainable daily target for that category.</p>
+        <div id="barChart" class="bar-list" aria-label="Category vs sustainable limit comparison"></div>
+      </div>
+    </div>
+  </section>
+
+<section class="insights" id="insights" aria-labelledby="insH"><div class="section-head"><p class="eyebrow">Beyond the number</p><h2 id="insH">What your footprint means</h2>
+<p class="section-sub">Includes flights. Updates when you press Calculate.</p></div><div class="insight-grid">
+<div class="insight-card"><h3>Your badge</h3><div class="badge-big" role="status"><span class="badge-big__icon" id="badgeIcon" aria-hidden="true"></span><div><div class="badge-big__name" id="badgeName"></div><p id="badgeDesc"></p></div></div></div>
+<div class="insight-card"><h3>Biggest emission source</h3><p id="topSource"></p><h3>Tree equivalent</h3><p>About <strong id="treeCount" data-mono>0</strong> mature trees would be needed to absorb your yearly emissions.</p></div>
+<div class="insight-card insight-card--wide"><h3>You vs. the targets (tons CO₂e per year)</h3><div id="cmpChart" role="img" aria-label="Bar comparison of sustainable target, global average and your result"></div></div>
+<div class="insight-card insight-card--wide"><h3>What if&hellip;</h3><div class="whatif-controls"><label>Category <select id="whatifCat"></select></label>
+<label>Reduce by <output id="whatifPctOut">20%</output> <input type="range" class="q-slider" id="whatifPct" min="0" max="100" step="5" value="20"></label></div><p class="whatif-out" id="whatifOut" aria-live="polite"></p></div>
+</div><div class="report-bar"><button class="btn btn--primary" id="reportBtn" type="button">Download my report</button></div></section>
+  <section class="recommendations" id="recommendations">
+    <div class="section-head reveal">
+      <p class="eyebrow">Your plan</p>
+      <h2>Recommendations, ranked</h2>
+      <p class="section-sub">Ordered by how much impact each change could have on your specific footprint.</p>
+    </div>
+    <div class="rec-grid" id="recGrid"></div>
+  </section>
+
+<div id="hope"><section class="scene" aria-labelledby="sc7"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene7-768.webp 768w, assets/img/scene7.webp 1376w" sizes="100vw"><img src="assets/img/scene7.jpg" srcset="assets/img/scene7-768.jpg 768w, assets/img/scene7.jpg 1376w" sizes="100vw" alt="Green city with solar roofs, wind turbines, a tram and cyclists" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">7 / 8</p><h2 id="sc7">Sustainable actions</h2><p>Solar and wind power, trams, bike lanes, efficient buildings and shared gardens already work. Your recommendations above are the personal version of this.</p></div></div></section><section class="scene" aria-labelledby="sc8"><div class="scene__media"><picture><source type="image/webp" srcset="assets/img/scene8-768.webp 768w, assets/img/scene8.webp 1376w" sizes="100vw"><img src="assets/img/scene8.jpg" srcset="assets/img/scene8-768.jpg 768w, assets/img/scene8.jpg 1376w" sizes="100vw" alt="Healthy Earth with aurora and sunrise" width="1376" height="768" loading="lazy" decoding="async"></picture></div><div class="scene__veil" aria-hidden="true"></div><div class="scene__inner"><div class="scene__card"><p class="scene__count">8 / 8</p><h2 id="sc8">A healthy Earth, a hopeful future</h2><p>Every tonne you avoid counts. Measure, act, then measure again, and keep your report to track the change.</p><a class="btn btn--ghost scene__cta" href="#top">Back to top</a></div></div></section></div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">
+        <svg viewBox="0 0 40 40" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4C10 6 5 15 6 24c0.6 6 5.2 10.6 11.2 11.6C15 32 14 26 16 20c2.3-6.9 8-10.6 14-11.8C27 3.5 23.6 3.2 20 4Z" fill="url(#leafGrad2)"/>
+          <defs>
+            <linearGradient id="leafGrad2" x1="5" y1="4" x2="27" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8CE0AC"/><stop offset="1" stop-color="#1F6B4A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <div><p class="footer-name">CarbonTrack Pro</p><p class="footer-tag">Measure. Understand. Reduce.</p></div>
+    </div>
+    <p class="footer-note">Emission factors are representative global averages for educational use, not a certified carbon audit.</p>
+    <p class="footer-credits">Built with 🌱 for a lighter footprint — © <span id="year"></span> CarbonTrack Pro.</p>
+  </div>
+</footer>
+
+<script src="js/app.js" defer></script>
+<script src="js/enhancements.js" defer></script>
+</body>
+</html>
