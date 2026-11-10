@@ -362,3 +362,18 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+/* Temporary global background */
+
+body {
+    background: url('scene2.jpg') center center/cover no-repeat fixed;
+}
+
+/* Dark overlay for readability */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    pointer-events: none;
+    z-index: -1;
+}
