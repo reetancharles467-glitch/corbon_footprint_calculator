@@ -347,9 +347,42 @@ button{ font-family: inherit; cursor: pointer; }
   .header-inner{ padding: 12px 18px; }
   .section-head, .calculator-grid, .verdict-card, .charts-row, .rec-grid, .how-inner{ padding-left: 18px; padding-right: 18px; }
 }
-body {
-    background-image: url('scene1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+.scene1{
+    background-image:url('scene1.jpg');
+}
+
+.scene2{
+    background-image:url('scene2.jpg');
+}
+
+.scene3{
+    background-image:url('scene3.jpg');
+}
+
+.scene4{
+    background-image:url('scene4.jpg');
+}
+
+.scene5{
+    background-image:url('scene5.jpg');
+}
+
+.scene6{
+    background-image:url('scene6.jpg');
+}
+
+.scene7{
+    background-image:url('scene7.jpg');
+}
+
+.scene8{
+    background-image:url('scene8.jpg');
+}
+
+.scene1,.scene2,.scene3,.scene4,
+.scene5,.scene6,.scene7,.scene8{
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+    min-height:100vh;
 }
